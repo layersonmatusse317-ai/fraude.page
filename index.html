@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projecto escolar sobre fraude académica e cópia nos testes.">
+  <title>Fraude académica e cópia nos testes</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #121418;
+      color: #e8e8e8;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #8ab4ff; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #121418;
+      border-bottom: 1px solid #333;
+    }
+    nav {
+      display: flex;
+      gap: 8px;
+      max-width: 840px;
+      margin: auto;
+      padding: 10px 16px;
+      overflow-x: auto;
+    }
+    nav button {
+      flex: 0 0 auto;
+      border: 0;
+      border-radius: 20px;
+      padding: 9px 14px;
+      background: transparent;
+      color: #ccc;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    nav button.active { background: #fff; color: #111; font-weight: bold; }
+    nav button:focus-visible, a:focus-visible, button:focus-visible {
+      outline: 3px solid #8ab4ff;
+      outline-offset: 3px;
+    }
+    main { max-width: 840px; margin: auto; padding: 16px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .hero {
+      padding: 30px 20px;
+      border-radius: 14px;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url("foto-hero.jpg") center/cover, #222;
+    }
+    .hero h1 { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.15; }
+    .hero h1 span { background: #d32f2f; padding: 0 4px; }
+    .hero p { color: #ddd; }
+    h2 { margin: 28px 0 14px; font-size: 24px; }
+    h3 { margin: 0 0 8px; }
+    .card, .obj {
+      margin-bottom: 12px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #1e232e;
+    }
+    .card p, .obj p { margin: 0; color: #b7bdc8; font-size: 14px; }
+    .card a { display: inline-block; margin-top: 10px; font-weight: bold; }
+    .btn {
+      display: inline-block;
+      margin: 8px 8px 0 0;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn-white { background: #fff; color: #111; }
+    .btn-outline { border: 1px solid #fff; color: #fff; }
+    .importante { margin-bottom: 16px; padding-left: 12px; border-left: 3px solid #e53935; }
+    .importante p { margin: 4px 0 0; color: #ccc; }
+    .obj { display: flex; gap: 12px; }
+    .pill {
+      display: inline-block;
+      margin: 4px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #2a2f3a;
+      font-size: 12px;
+    }
+    .galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    figure { margin: 0; }
+    .galeria img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      background: #333;
+      object-fit: cover;
+    }
+    figcaption { margin-top: 6px; color: #bbb; font-size: 12px; }
+    .flex { display: flex; flex-wrap: wrap; gap: 24px; }
+    .flex > div { flex: 1; min-width: min(260px, 100%); }
+    label { display: block; margin: 16px 0 6px; font-weight: bold; }
+    input, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      background: #121418;
+      color: #fff;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .btn-enviar {
+      margin-top: 14px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 9px;
+      background: #fff;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 18px 16px;
+      border-top: 1px solid #333;
+      color: #999;
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width: 520px) {
+      .galeria { grid-template-columns: 1fr; }
+      .galeria img { height: 200px; }
+      .hero { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <button class="active" aria-current="page" onclick="mostrar('inicio', this)">Início</button>
+      <button onclick="mostrar('conteudo', this)">Conteúdo</button>
+      <button onclick="mostrar('galeria', this)">Galeria e notícias</button>
+      <button onclick="mostrar('contacto', this)">Contacto</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="page active">
+      <div class="hero">
+        <h1>Fraude académica e <span>cópia</span><br><span>nos testes</span></h1>
+        <p>Bem-vindo ao nosso projecto. Estudámos porque é que os alunos copiam, o que isso causa à escola e o que podemos fazer para o evitar.</p>
+        <a class="btn btn-white" href="#conteudo" onclick="ir('conteudo'); return false;">Ler o trabalho</a>
+        <a class="btn btn-outline" href="#galeria" onclick="ir('galeria'); return false;">Ver a galeria</a>
+      </div>
+
+      <h2>Explore o website</h2>
+      <div class="card"><h3>Conteúdo</h3><p>Introdução, objectivos, desenvolvimento, soluções e recomendações sobre a cópia nos testes.</p><a href="#conteudo" onclick="ir('conteudo'); return false;">Abrir conteúdo</a></div>
+      <div class="card"><h3>Galeria e notícias</h3><p>Fotografias da recolha de informação na escola e novidades do projecto.</p><a href="#galeria" onclick="ir('galeria'); return false;">Abrir galeria</a></div>
+      <div class="card"><h3>Contacto</h3><p>Envie uma pergunta, uma opinião ou uma sugestão ao grupo.</p><a href="#contacto" onclick="ir('contacto'); return false;">Falar connosco</a></div>
+
+      <h2>Porque é importante</h2>
+      <div class="importante"><b>Quem copia</b><p>Perde a aprendizagem e fica com lacunas que crescem de ano para ano.</p></div>
+      <div class="importante"><b>Quem estuda</b><p>É injustiçado quando uma nota copiada vale o mesmo que uma nota merecida.</p></div>
+      <div class="importante"><b>A escola</b><p>Perde credibilidade junto das famílias e da comunidade.</p></div>
+    </section>
+
+    <section id="conteudo" class="page">
+      <h2>Introdução</h2>
+      <p>A cópia existe em muitas escolas, mas nem sempre se fala dela. O medo de reprovar, a falta de preparação e a pressão dos colegas podem levar alguns alunos a copiar. Este trabalho procura compreender o problema, mostrar as suas consequências e propor soluções.</p>
+      <p>A fraude académica é qualquer acto desonesto no processo de avaliação: copiar no teste, usar cábulas, deixar copiar, usar o telemóvel escondido ou apresentar um trabalho feito por outra pessoa.</p>
+
+      <h2>Objectivos</h2>
+      <div class="obj"><span aria-hidden="true">🎯</span><div><b>Compreender</b><p>Entender o que é a fraude académica e porque os alunos copiam.</p></div></div>
+      <div class="obj"><span aria-hidden="true">🔍</span><div><b>Analisar</b><p>Analisar as consequências para o aluno, para a turma e para a escola.</p></div></div>
+      <div class="obj"><span aria-hidden="true">🛡️</span><div><b>Prevenir</b><p>Propor medidas práticas para alunos, professores, famílias e direcção da escola.</p></div></div>
+
+      <h2>Desenvolvimento</h2>
+      <span class="pill">O que é</span><span class="pill">Causas</span><span class="pill">Consequências</span><span class="pill">Impacto escolar</span>
+      <div class="card"><h3>O que é fraude académica?</h3><p>É qualquer acto desonesto que procura obter vantagem numa avaliação. Pode incluir cábulas, telemóveis, trabalhos copiados ou pedir a outra pessoa para fazer o teste.</p></div>
+      <div class="card"><h3>Por que os alunos copiam?</h3><p>Medo de reprovar, falta de preparação, pressão da família, vontade de ter boas notas sem estudar e ver outros a copiar sem consequências.</p></div>
+      <div class="card"><h3>Consequências</h3><p>Quem copia não aprende, pode perder confiança em si próprio e corre o risco de ser apanhado e perder credibilidade.</p></div>
+
+      <h2>Soluções e prevenção</h2>
+      <div class="card"><h3>Preparar melhor os alunos</h3><p>Estudar com antecedência, rever a matéria, fazer exercícios e pedir ajuda ao professor.</p></div>
+      <div class="card"><h3>Organizar bem as provas</h3><p>Variar os enunciados, afastar as carteiras e vigiar com justiça durante a prova.</p></div>
+      <div class="card"><h3>Regras claras e justas</h3><p>Explicar as regras a todos e aplicar consequências proporcionais da mesma forma.</p></div>
+      <div class="card"><h3>Valorizar a honestidade</h3><p>Conversar sobre esforço e responsabilidade. Uma nota sem aprendizagem não demonstra o que o aluno sabe.</p></div>
+      <div class="card"><h3>Avaliação contínua</h3><p>Não depender apenas de um teste: valorizar trabalhos, participação e pequenas avaliações ao longo do trimestre.</p></div>
+      <div class="card"><h3>Criar canais de apoio</h3><p>Oferecer tutorias, grupos de estudo e oportunidades para pedir ajuda sem medo.</p></div>
+
+      <h2>Recomendações</h2>
+      <div class="card"><h3>Aos alunos</h3><p>Estudar com antecedência; não levar cábulas; ajudar os colegas a estudar, não a copiar.</p></div>
+      <div class="card"><h3>Aos professores</h3><p>Ser claros nas regras, variar as formas de avaliar e conversar com os alunos.</p></div>
+      <div class="card"><h3>Às famílias</h3><p>Acompanhar o estudo em casa, valorizar o esforço e manter contacto com a escola.</p></div>
+      <div class="card"><h3>À direcção da escola</h3><p>Ter um regulamento claro e promover campanhas de honestidade académica.</p></div>
+      <p><b>Conclusão:</b> Uma nota conseguida com esforço vale mais do que cem notas copiadas.</p>
+    </section>
+
+    <section id="galeria" class="page">
+      <h2>Galeria: recolha de informação na escola</h2>
+      <p>Fotografias do trabalho de campo do grupo.</p>
+      <div class="galeria">
+        <figure><img src="foto1.jpg" alt="Entrevista na sala de aula"><figcaption>Os alunos registam as respostas da professora.</figcaption></figure>
+        <figure><img src="foto2.jpg" alt="Conversa com a professora"><figcaption>Conversa com a professora no pátio da escola.</figcaption></figure>
+        <figure><img src="foto3.jpg" alt="Anotações num caderno"><figcaption>Registo de dados durante a recolha de informação.</figcaption></figure>
+        <figure><img src="foto4.jpg" alt="Grupo a trabalhar"><figcaption>Trabalho em grupo: perguntas e registo das respostas.</figcaption></figure>
+        <figure><img src="foto5.jpg" alt="Equipa de pesquisa"><figcaption>A equipa de pesquisa reunida na sala de aula.</figcaption></figure>
+        <figure><img src="foto6.jpg" alt="Debate entre colegas"><figcaption>Debate entre colegas sobre a cópia nos testes.</figcaption></figure>
+      </div>
+
+      <h2>Notícias e avisos</h2>
+      <div class="card"><h3>Recolha de informação concluída</h3><p>O grupo entrevistou professores e conversou com colegas dentro e fora da sala de aula.</p></div>
+      <div class="card"><h3>Compromisso de honestidade</h3><p>Convidamos todos os alunos a fazer os testes sem copiar.</p></div>
+      <div class="card"><h3>Envie a sua opinião</h3><p>Quer partilhar uma sugestão? Use a página de contacto.</p><a href="#contacto" onclick="ir('contacto'); return false;">Ir para contacto</a></div>
+    </section>
+
+    <section id="contacto" class="page">
+      <div class="flex">
+        <div>
+          <h2>Contacto</h2>
+          <p>Escreva ao grupo. Respondemos assim que possível.</p>
+          <form onsubmit="event.preventDefault(); alert('Obrigado pela mensagem! Este formulário é apenas demonstrativo e não envia os dados.');">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+
+            <button class="btn-enviar" type="submit">Enviar mensagem</button>
+          </form>
+        </div>
+        <div>
+          <h2>Informações</h2>
+          <p><b>Professor orientador:</b><br>Lázaro</p>
+          <p><b>WhatsApp:</b><br><a href="https://wa.me/258877342528">+258 87 734 2528</a></p>
+          <p><b>E-mail:</b><br><a href="mailto:gercioduvane86@gmail.com">gercioduvane86@gmail.com</a></p>
+          <p><a class="btn btn-outline" href="https://wa.me/258877342528">WhatsApp</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Trabalho de grupo sobre <i>Fraude académica e cópia nos testes.</i></footer>
+
+  <script>
+    function mostrar(id, botao) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+
+      document.querySelectorAll("nav button").forEach(b => {
+        b.classList.remove("active");
+        b.removeAttribute("aria-current");
+      });
+
+      if (botao) {
+        botao.classList.add("active");
+        botao.setAttribute("aria-current", "page");
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function ir(id) {
+      const indices = { inicio: 0, conteudo: 1, galeria: 2, contacto: 3 };
+      mostrar(id, document.querySelectorAll("nav button")[indices[id]]);
+    }
+  </script>
+</body>
+</html>
